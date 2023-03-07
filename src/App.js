@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import LoadersProvider from "./contexts/loaders-context";
+import Discover from "./views/discover";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <LoadersProvider>
+      <Discover />
+    </LoadersProvider>
+  )
 }
 
 export default App;
