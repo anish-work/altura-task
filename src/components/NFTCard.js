@@ -1,24 +1,25 @@
 import { ArrowForwardIos, Verified } from '@mui/icons-material';
-import { Avatar, Button, Card, CardMedia, Divider, IconButton, Tooltip } from '@mui/material';
+import { Avatar, Button, Card, CardMedia, Divider, IconButton, Tooltip, Typography } from '@mui/material';
 import  { makeStyles } from "@mui/styles";
 import clsx from 'clsx';
 
 import React from 'react';
+import { getChainIcon } from '../utils/icons';
 
 const styles = makeStyles((theme) => ({
   nftCardRoot:{
     position: "relative",
-    maxWidth: 345, borderRadius: "12px", cursor: "pointer",
-    transition: "all ease-in 0.3s",
+    maxWidth: "400px", borderRadius: "12px", cursor: "pointer",
+    transition: "all ease-in 0.2s",
     "&:hover":{
       translate: "0 -2%",
       backgroundColor: "f5f5f5",
       "& #card-media" : {
-        transition: "background-size ease-in 10s",
-        backgroundSize: "130%",
+        transition: "background-size ease-in 0.3s",
+        backgroundSize: "110%",
       },
       "& #hover-button" :{
-        transition: "all ease-in 0.3s",
+        transition: "all ease-in 0.2s",
         translate: "0px 0px",
       },
     }
@@ -45,6 +46,7 @@ const NFTCard = (props) => {
             </p>
           </div>
         </Tooltip>
+        {getChainIcon(nft.chain)}
       </div>
       <CardMedia
         sx={{ height: 240, borderRadius: "12px 12px 0px 0px" }}
@@ -53,13 +55,13 @@ const NFTCard = (props) => {
         title={nft.title}
       />
       <div className='p-10'>
-        <p className='font_20_600 mt-10'>
+        <Typography className='font_20_600 me-20'>
           {nft.title}
-        </p>
+        </Typography>
         <Divider className='border-dark w-50 mt-5' />
-        <p className='font_13_700 mt-8 text-grey'>
-          Floor Price: <span className='text-warning'>{nft.price.floor} {nft.price.currency}</span>
-        </p>
+        <Typography className='font_13_700 mt-8 text-primary' >
+          {nft.price.floor} {nft.price.currency}
+        </Typography>
       </div>
       <IconButton className={clsx(classes.hiddenButton, "bg-secondary")} id="hover-button">
         <ArrowForwardIos />

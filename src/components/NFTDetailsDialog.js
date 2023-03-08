@@ -1,26 +1,14 @@
-import { Bookmark, Close, ContentCopy, CopyAll, Favorite, FavoriteBorder, Launch, Verified, Visibility } from '@mui/icons-material';
+import { Bookmark, Close, ContentCopy, FavoriteBorder, Launch, Verified, Visibility } from '@mui/icons-material';
 import { Button, Chip, Dialog, Grid, IconButton, Slide, Tooltip, Typography, } from '@mui/material'
 import { makeStyles } from "@mui/styles";
 import clsx from 'clsx';
 import React from 'react'
-import { EthereumSvg } from '../icons/eth-svg';
-import { PolygonSvg } from '../icons/polygon-svg';
+import { getChainIcon } from '../utils/icons';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const getChainIcon = (chain) => {
-  switch(chain){
-    case "ETHEREUM":
-      return <EthereumSvg />;
-    case "POLYGON":
-      return <PolygonSvg />;
-    default:
-      return null;
-
-  }
-}
 const styles = makeStyles(({ theme }) => {
   return ({
     propCard: {
