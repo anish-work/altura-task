@@ -1,0 +1,68 @@
+@import "./overrides.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+
+$fontsizes: (
+  10_500: [10px, 500],
+  10_600: [10px, 600],
+  11_500: [11px, 500],
+  11_600: [11px, 600],
+  11_700: [11px, 700],
+  12_500: [12px, 500],
+  12_600: [12px, 600],
+  13_400: [13px, 400],
+  13_500: [13px, 500],
+  13_600: [13px, 600],
+  13_700: [13px, 700],
+  14_400: [14px, 400],
+  14_500: [14px, 500],
+  14_600: [14px, 600],
+  15_400: [15px, 400],
+  15_500: [15px, 500],
+  15_600: [15px, 600],
+  15_700: [15px, 700],
+  16_400: [16px, 400],
+  16_500: [16px, 500],
+  16_600: [16px, 600],
+  16_700: [16px, 700],
+  17_600: [17px, 600],
+  18_500: [18px, 500],
+  18_600: [18px, 600],
+  20_500: [20px, 500],
+  20_600: [20px, 600],
+  20_700: [20px, 700],
+  24_700: [24px, 700],
+  25_600: [25px, 600],
+  25_700: [25px, 700],
+  30_700: [30px, 700],
+);
+
+@each $name, $props in $fontsizes {
+  .font_#{$name} {
+    font-size: nth($props, 1) !important;
+    font-weight: nth($props, 2) !important;
+  }
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+      .font_#{$name}#{$infix} {
+        font-size: nth($props, 1) !important;
+        font-weight: nth($props, 2) !important;
+      }
+    }
+  }
+}
+
+$borders: (
+  2: 2px,
+  3: 3px,
+  4: 4px,
+);
+
+@each $name, $val in $borders {
+  .border-#{$name} { border: $val solid $border-color !important; }
+  .border-top-#{$name} { border-top: $val solid $border-color !important; }
+  .border-right-#{$name} { border-right: $val solid $border-color !important; }
+  .border-bottom-#{$name} { border-bottom: $val solid $border-color !important; }
+  .border-left-#{$name} { border-left: $val solid $border-color !important; }
+};
+

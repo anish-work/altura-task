@@ -1,0 +1,52 @@
+// variables that need to be set before bootstrap reboot can be used safely
+$body-bg: #f5f5f5;
+$body-color: #42484b;
+$primary: #D73CBE;
+$secondary: #7b67e0;
+$dark:#2C1E4A;
+$purple: #442063;
+$dark-purple: #2B233D;
+$font-family-base: "Montserrat", "Open Sans", "Helvetica", "Arial", sans-serif;
+$enable-gradients: true;
+$border-color: #D8DCE0;
+
+
+// make breakpoints of material-ui and bootstrap the same
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1440px,
+  xl: 1920px
+);
+$container-max-widths: (
+  xl: 1440px
+);
+$grid-gutter-width: 30px;
+$grid-gutter-widths: (
+  ("default", $grid-gutter-width),
+  (600, 60px),
+  (960, 80px),
+  (1440, 120px)
+);
+$spacers: (
+  2px:2px,
+  3px:3px,
+  4px:4px,
+  5: 5px,
+  6: 6px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  15: 15px,
+  16: 16px,
+  20: 20px,
+  25: 25px,
+  30: 30px,
+  35: 35px,
+  40: 40px,
+  42: 42px,
+  45: 45px,
+  50: 50px,
+  60: 60px,
+);

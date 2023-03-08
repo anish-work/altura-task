@@ -1,12 +1,15 @@
 import LoadersProvider from "./contexts/loaders-context";
+import MuiTheme from "./css/mui-theme";
 import Discover from "./views/discover";
 
 
-function App() {
+function App(props) {
   return (
-    <LoadersProvider>
-      <Discover />
-    </LoadersProvider>
+    <MuiTheme>
+      <LoadersProvider>
+        <Discover />
+      </LoadersProvider>
+    </MuiTheme>
   )
 }
 

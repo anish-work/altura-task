@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.hover-underline {
+  text-decoration: none;
+  cursor: pointer;
+}
+.hover-underline:hover {
+  text-decoration: underline;
+}
