@@ -1,4 +1,4 @@
-import { ArrowForwardIos } from '@mui/icons-material';
+import { ArrowForwardIos, Verified } from '@mui/icons-material';
 import { Avatar, Button, Card, CardMedia, Divider, IconButton, Tooltip } from '@mui/material';
 import  { makeStyles } from "@mui/styles";
 import clsx from 'clsx';
@@ -32,14 +32,17 @@ const styles = makeStyles((theme) => ({
 
 const NFTCard = (props) => {
   const { nft, onClick } = props;
+  const { collection } = nft;
   const classes = styles();
   return (
     <Card classes={{root: classes.nftCardRoot}} onClick={(e) => onClick(nft)}>
-      <div className='h-100 p-10 m-0 d-flex justify-content-between'>
+      <div className='h-100 p-10 m-0 d-flex justify-content-between align-items-center'>
         <Tooltip title={`Collection: ${nft.collection.title}`}>
           <div className='d-flex'>
             <Avatar src={nft.collection.imageUrl} sx={{ width:"18px", height: "18px" }}/>
-            <p className='text-grey font_13_500 mx-10'>{nft.collection.title}</p>
+            <p className='text-grey font_13_500 mx-10'>
+              {collection.title} {" "} {collection.isVerified && ( <Verified color='secondary' fontSize='12' />)}
+            </p>
           </div>
         </Tooltip>
       </div>
