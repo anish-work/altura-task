@@ -1,5 +1,5 @@
 import { Bookmark, Close, ContentCopy, FavoriteBorder, Launch, Verified, Visibility } from '@mui/icons-material';
-import { Button, Chip, Dialog, Grid, IconButton, Slide, Tooltip, Typography, } from '@mui/material'
+import { Button, Chip, Dialog, Grid, Hidden, IconButton, Slide, Tooltip, Typography, } from '@mui/material'
 import { makeStyles } from "@mui/styles";
 import clsx from 'clsx';
 import React from 'react'
@@ -9,7 +9,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const styles = makeStyles(({ theme }) => {
+const styles = makeStyles((theme) => {
   return ({
     propCard: {
       background: "rgba(128, 86, 220, 0.4 )"
@@ -26,7 +26,13 @@ const styles = makeStyles(({ theme }) => {
       position: "absolute",
       top: "10px",
       right: "10px",
-    }
+    },
+    closeBtn2:{
+      position: "absolute",
+      top: "10px",
+      right: "10px",
+      zIndex: theme.zIndex.Modal + 100,
+    },
   })
 });
 const NFTDetailsDialog = (props) => {
@@ -35,9 +41,16 @@ const NFTDetailsDialog = (props) => {
   const classes = styles();
   return (
     <Dialog fullWidth maxWidth="md" TransitionComponent={Transition} open classes={ { paper: "bg-white position-relative rounded-4"} }>
-      <IconButton className={classes.closeBtn} onClick={onClose}>
-        <Close />
-      </IconButton>
+      <Hidden mdDown>
+        <IconButton className={classes.closeBtn} onClick={onClose}>
+          <Close />
+        </IconButton>
+      </Hidden>
+      <Hidden smUp>
+        <IconButton className={classes.closeBtn2} onClick={onClose}>
+          <Close />
+        </IconButton>
+      </Hidden>
       <Grid container className='p-10'>
         <Grid item xs={12} md={4} className={classes.image}>
           <img src={media.image} alt='nft.title' className='w-100 rounded-4' />
