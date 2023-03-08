@@ -64,7 +64,7 @@ const NFTDetailsDialog = (props) => {
             Owned by {" "}
             <span>
               <a className='hover-underline text-primary font_16_500' href={owner[0].url || "#"} target="_blank" rel="noreferrer">
-                {owner[0].address}
+                {owner[0].name || owner[0].address}
               </a>
             </span>
           </Typography>
