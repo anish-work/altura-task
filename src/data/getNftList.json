@@ -235,7 +235,7 @@
         "art"
       ],
       "price": {
-        "floor": "0.0145",
+        "floor": "1.23 ETH",
         "currency": "ETH"
       },
       "media": {
@@ -286,7 +286,7 @@
         "art"
       ],
       "price": {
-        "floor": "0.0145",
+        "floor": "0.4289",
         "currency": "ETH"
       },
       "media": {
@@ -295,10 +295,10 @@
       "title": "Lil Ghost#5132",
       "collection": {
         "isVerified": true,
-        "title": "RENGA",
-        "imageUrl": "https://i.seadn.io/gcs/files/f3b11e36be14a5d31c75b19d03996fed.gif",
+        "title": "The Weirdo Ghost Gang",
+        "imageUrl": "https://i.seadn.io/gcs/files/d19a1520f0791c9b38bb70f6fb5d49cf.gif?auto=format&w=384",
         "description": "10'000 owls. Randomly generated on-chain from over 90'000'000 possible combinations.Category PFPs",
-        "url": "https://opensea.io/collection/renga"
+        "url": "https://opensea.io/collection/the-weirdo-ghost-gang"
       },
       "owner": [
         {
@@ -337,7 +337,7 @@
         "art"
       ],
       "price": {
-        "floor": "0.0145",
+        "floor": "1.23",
         "currency": "ETH"
       },
       "media": {
@@ -388,7 +388,7 @@
         "art"
       ],
       "price": {
-        "floor": "0.0145",
+        "floor": "2.075",
         "currency": "ETH"
       },
       "media": {
