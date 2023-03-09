@@ -58,7 +58,7 @@ const NFTDetailsDialog = (props) => {
           <Close />
         </IconButton>
       </Hidden>
-      <Grid container className='p-10'>
+      <Grid container className='p-10 overflow-scroll'>
         <Grid item xs={12} md={4} className={classes.image}>
           <img src={media.image} alt='nft.title' className='w-100 rounded-4' />
         </Grid>
@@ -114,14 +114,14 @@ const NFTDetailsDialog = (props) => {
             <Typography className='mb-10 font_15_600'>
               Floor Price: <span className='text-secondary'>{nft.price.floor} {nft.price.currency}</span>
             </Typography>
-            <div className='d-flex flex-column w-100 flex-md-row'>
+            <div className='d-flex w-100'>
               <Tooltip title="Visit OpenSea">
                 <Button variant='contained' color='secondary' className={clsx(classes.btn, "text-white")} href={nft.url} target="_blank">
                   Buy on OpenSea <Launch className='ms-10' />
                 </Button>
               </Tooltip>
               <Tooltip title="Save for later">
-                <Button variant='outlined' color='secondary' className={clsx(classes.btn, "ms-md-20 text-white mt-sm-0")}>
+                <Button variant='outlined' color='secondary' className={clsx(classes.btn, "ms-20 text-white mt-sm-0")}>
                   <Bookmark color='secondary' />
                 </Button>
               </Tooltip>
