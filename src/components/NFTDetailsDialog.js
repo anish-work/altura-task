@@ -37,7 +37,7 @@ const styles = makeStyles((theme) => {
 });
 const NFTDetailsDialog = (props) => {
   const { onClose, nft } = props;
-  const { collection, owner, title, media, tags=[], meta } = nft;
+  const { collection, owner, title, media, tags=[], meta, chain } = nft;
   const classes = styles();
   return (
     <Dialog fullWidth maxWidth="md" TransitionComponent={Transition} open classes={ { paper: "bg-white position-relative rounded-4"} }>
@@ -65,22 +65,24 @@ const NFTDetailsDialog = (props) => {
             <Typography className='font_25_600 me-20'>
               {title}
             </Typography>
-            <Chip variant='outlined' label={<>
-              <Typography className='font_15_600'>
-                  {nft.chain}
-                  {getChainIcon(nft.chain)}
-                </Typography>
-              </>}
-            />
+            {chain &&
+            <Tooltip title={`Chain : ${chain}`}>
+              <IconButton className='border'>
+                {getChainIcon(chain, 12)}
+              </IconButton>
+            </Tooltip>
+            }
           </div>
-          <Typography className='font_13_500'>
-            Owned by {" "}
-            <span>
-              <a className='hover-underline text-primary font_16_500' href={owner[0].url || "#"} target="_blank" rel="noreferrer">
-                {owner[0].name || owner[0].address}
-              </a>
-            </span>
-          </Typography>
+          {owner && owner[0] &&
+            <Typography className='font_13_500'>
+              Owned by {" "}
+              <span>
+                <a className='hover-underline text-primary font_16_500' href={owner[0].url || "#"} target="_blank" rel="noreferrer">
+                  {owner[0].name || owner[0].address}
+                </a>
+              </span>
+            </Typography>
+          }
           <div className='d-flex m-5 my-10'>
             {tags.map(({ _id, title }) => (
               <Chip key={_id} label={title} className="me-10" />
