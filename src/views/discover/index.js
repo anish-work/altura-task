@@ -1,5 +1,6 @@
 import { Divider, Grid, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import FullScreenLoader from '../../components/FullScreenLoader';
 import NFTCard from '../../components/NFTCard';
 import NFTDetailsDialog from '../../components/NFTDetailsDialog';
 import NFTLIST from '../../data/getNftList';
@@ -12,15 +13,16 @@ const getNFTs = (delay = 2000) => new Promise(async(res, rej) => {
 });
 
 const Discover = (props) => {  
-
   const [nfts, setNFTs] = useState([]);
   const [dialog, setDialog] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchNFTs() {
       try {
         const fetchedNFTs = await getNFTs();
         setNFTs(fetchedNFTs);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -33,6 +35,7 @@ const Discover = (props) => {
     setDialog(id);
   };
 
+  if(isLoading) return <FullScreenLoader />;
   return (
     <div 
       className={"container position-relative d-flex flex-column py-10"}
