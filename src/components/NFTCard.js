@@ -15,11 +15,10 @@ const styles = makeStyles((theme) => ({
       translate: "0 -2%",
       backgroundColor: "f5f5f5",
       "& #card-media" : {
-        transition: "background-size ease-in 0.3s",
-        backgroundSize: "110%",
+        backgroundSize: "105%",
       },
       "& #hover-button" :{
-        transition: "all ease-in 0.2s",
+        transition: "all ease-in-out 0.2s",
         translate: "0px 0px",
       },
     }
@@ -49,7 +48,17 @@ const NFTCard = (props) => {
         {getChainIcon(nft.chain)}
       </div>
       <CardMedia
-        sx={{ height: 240, borderRadius: "12px 12px 0px 0px" }}
+        sx={{
+          borderRadius: "12px 12px 0px 0px", 
+          height: 0, 
+          paddingTop: '75%',
+          background: '#eee',
+          backgroundOrigin: 'border-box',
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
+          transition: "all ease-in 0.2s",
+        }}
         id="card-media"
         image={nft.media.image}
         title={nft.title}
