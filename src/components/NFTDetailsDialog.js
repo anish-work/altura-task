@@ -9,7 +9,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const styles = makeStyles((theme) => {
+const styles = makeStyles(() => {
   return ({
     propCard: {
       background: "rgba(128, 86, 220, 0.4 )"
@@ -29,25 +29,32 @@ const styles = makeStyles((theme) => {
     },
     closeBtn2:{
       position: "absolute",
-      top: "10px",
+      top: "-10px",
       right: "10px",
-      zIndex: theme.zIndex.Modal + 100,
+      zIndex: 1400,
     },
   })
 });
+
 const NFTDetailsDialog = (props) => {
   const { onClose, nft } = props;
   const { collection, owner, title, media, tags=[], meta, chain } = nft;
   const classes = styles();
   return (
-    <Dialog fullWidth maxWidth="md" TransitionComponent={Transition} open classes={ { paper: "bg-white position-relative rounded-4"} }>
+    <Dialog 
+      fullWidth 
+      maxWidth="md" 
+      TransitionComponent={Transition} 
+      open 
+      classes={ { paper: "bg-white position-relative rounded-4 overflow-visible"} }
+    >
       <Hidden mdDown>
         <IconButton className={classes.closeBtn} onClick={onClose}>
           <Close />
         </IconButton>
       </Hidden>
       <Hidden smUp>
-        <IconButton className={classes.closeBtn2} onClick={onClose}>
+        <IconButton className={clsx(classes.closeBtn2, "bg-light")} onClick={onClose}>
           <Close />
         </IconButton>
       </Hidden>
@@ -61,8 +68,8 @@ const NFTDetailsDialog = (props) => {
               {collection.title} {collection.isVerified && ( <Verified fontSize='12' />)}
             </a> {" "}
           </Typography>
-          <div className={clsx('d-flex flex-column flex-md-row w-100 align-items-md-center my-10')}>
-            <Typography className='font_25_600 me-20'>
+          <div className={clsx('d-flex w-100 align-items-md-center my-10')}>
+            <Typography className='font_25_600 me-20' noWrap>
               {title}
             </Typography>
             {chain &&
